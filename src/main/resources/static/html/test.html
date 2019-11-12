@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js+springboot解决跨域请求</title>
+</head>
+<body>
+<script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js">
+</script>
+<script>
+//  var baseUrl = "https://30paotui.com";
+  var baseUrl = "http://localhost:8080/test/test/test";
+  console.log('sssssssssssssssssssssss');
+  $(document).ready(function () {
+    $("button").click(function () {
+      $.ajax({
+    //    url: baseUrl + "/pv/2048/list", success: function (result) {
+        url: baseUrl ,
+        success: function (result) {
+          document.getElementById("p1").innerHTML = result;
+          var str = JSON.stringify(result); //将JSON对象转化为JSON字符
+          var obj = JSON.parse(str); //由JSON字符串转换为JSON对象
+          console.log(str);
+          console.log(obj);
+          console.log(obj.data);
+          console.log(result.msg);
+          console.log(result.code);
+        }
+
+      });
+    });
+  });
+</script>
+<p id="p1"></p>
+<button>获取其他内容</button>
+
+</body>
+</html>
